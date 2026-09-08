@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: quote-screensaver
+    runtime: docker
+    dockerfilePath: Dockerfile
+    plan: free
+    envVars:
+      - key: DATABASE_PATH
+        value: /var/data/screensaver.db
+    disk:
+      name: screensaver-data
+      mountPath: /var/data
+      sizeGB: 1

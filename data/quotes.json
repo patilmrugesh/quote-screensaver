@@ -1,0 +1,1202 @@
+[
+  {
+    "id": 1,
+    "text": "The only way to do great work is to love what you do.",
+    "author": "Steve Jobs",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 2,
+    "text": "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+    "author": "Winston Churchill",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 3,
+    "text": "Believe you can and you're halfway there.",
+    "author": "Theodore Roosevelt",
+    "category": "Wisdom & Philosophy"
+  },
+  {
+    "id": 4,
+    "text": "It does not matter how slowly you go as long as you do not stop.",
+    "author": "Confucius",
+    "category": "Wisdom & Philosophy"
+  },
+  {
+    "id": 5,
+    "text": "Our greatest glory is not in never falling, but in rising every time we fall.",
+    "author": "Confucius",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 6,
+    "text": "The future belongs to those who believe in the beauty of their dreams.",
+    "author": "Eleanor Roosevelt",
+    "category": "Success & Ambition"
+  },
+  {
+    "id": 7,
+    "text": "You miss 100% of the shots you don't take.",
+    "author": "Wayne Gretzky",
+    "category": "Wisdom & Philosophy"
+  },
+  {
+    "id": 8,
+    "text": "Whether you think you can or you think you can't, you're right.",
+    "author": "Henry Ford",
+    "category": "Wisdom & Philosophy"
+  },
+  {
+    "id": 9,
+    "text": "The only limit to our realization of tomorrow is our doubts of today.",
+    "author": "Franklin D. Roosevelt",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 10,
+    "text": "Don't watch the clock; do what it does. Keep going.",
+    "author": "Sam Levenson",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 11,
+    "text": "The best way to predict the future is to create it.",
+    "author": "Peter Drucker",
+    "category": "Success & Ambition"
+  },
+  {
+    "id": 12,
+    "text": "It always seems impossible until it's done.",
+    "author": "Nelson Mandela",
+    "category": "Success & Ambition"
+  },
+  {
+    "id": 13,
+    "text": "Life is what happens when you're busy making other plans.",
+    "author": "John Lennon",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 14,
+    "text": "Twenty years from now you will be more disappointed by the things you didn't do than by the ones you did do.",
+    "author": "Mark Twain",
+    "category": "Motivation"
+  },
+  {
+    "id": 15,
+    "text": "The only person you are destined to become is the person you decide to be.",
+    "author": "Ralph Waldo Emerson",
+    "category": "Wisdom & Philosophy"
+  },
+  {
+    "id": 16,
+    "text": "Go confidently in the direction of your dreams. Live the life you have imagined.",
+    "author": "Henry David Thoreau",
+    "category": "Mindfulness & Peace"
+  },
+  {
+    "id": 17,
+    "text": "In the middle of difficulty lies opportunity.",
+    "author": "Albert Einstein",
+    "category": "Success & Ambition"
+  },
+  {
+    "id": 18,
+    "text": "What lies behind us and what lies before us are tiny matters compared to what lies within us.",
+    "author": "Ralph Waldo Emerson",
+    "category": "Wisdom & Philosophy"
+  },
+  {
+    "id": 19,
+    "text": "Success is walking from failure to failure with no loss of enthusiasm.",
+    "author": "Winston Churchill",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 20,
+    "text": "The way to get started is to quit talking and begin doing.",
+    "author": "Walt Disney",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 21,
+    "text": "Don't let yesterday take up too much of today.",
+    "author": "Will Rogers",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 22,
+    "text": "You are never too old to set another goal or to dream a new dream.",
+    "author": "C.S. Lewis",
+    "category": "Success & Ambition"
+  },
+  {
+    "id": 23,
+    "text": "It is never too late to be what you might have been.",
+    "author": "George Eliot",
+    "category": "Motivation"
+  },
+  {
+    "id": 24,
+    "text": "Act as if what you do makes a difference. It does.",
+    "author": "William James",
+    "category": "Motivation"
+  },
+  {
+    "id": 25,
+    "text": "Everything you've ever wanted is on the other side of fear.",
+    "author": "George Addair",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 26,
+    "text": "Hardships often prepare ordinary people for an extraordinary destiny.",
+    "author": "C.S. Lewis",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 27,
+    "text": "Do what you can, with what you have, where you are.",
+    "author": "Theodore Roosevelt",
+    "category": "Motivation"
+  },
+  {
+    "id": 28,
+    "text": "The only impossible journey is the one you never begin.",
+    "author": "Tony Robbins",
+    "category": "Success & Ambition"
+  },
+  {
+    "id": 29,
+    "text": "You are braver than you believe, stronger than you seem, and smarter than you think.",
+    "author": "A.A. Milne",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 30,
+    "text": "Keep your face always toward the sunshine, and shadows will fall behind you.",
+    "author": "Walt Whitman",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 31,
+    "text": "Change your thoughts and you change your world.",
+    "author": "Norman Vincent Peale",
+    "category": "Creativity & Art"
+  },
+  {
+    "id": 32,
+    "text": "The mind is everything. What you think you become.",
+    "author": "Buddha",
+    "category": "Wisdom & Philosophy"
+  },
+  {
+    "id": 33,
+    "text": "An unexamined life is not worth living.",
+    "author": "Socrates",
+    "category": "Mindfulness & Peace"
+  },
+  {
+    "id": 34,
+    "text": "Turn your wounds into wisdom.",
+    "author": "Oprah Winfrey",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 35,
+    "text": "Do not go where the path may lead, go instead where there is no path and leave a trail.",
+    "author": "Ralph Waldo Emerson",
+    "category": "Creativity & Art"
+  },
+  {
+    "id": 36,
+    "text": "You must be the change you wish to see in the world.",
+    "author": "Mahatma Gandhi",
+    "category": "Creativity & Art"
+  },
+  {
+    "id": 37,
+    "text": "Everything has beauty, but not everyone sees it.",
+    "author": "Confucius",
+    "category": "Mindfulness & Peace"
+  },
+  {
+    "id": 38,
+    "text": "It's not whether you get knocked down, it's whether you get up.",
+    "author": "Vince Lombardi",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 39,
+    "text": "Fall seven times, stand up eight.",
+    "author": "Japanese Proverb",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 40,
+    "text": "When you have a dream, you've got to grab it and never let go.",
+    "author": "Carol Burnett",
+    "category": "Success & Ambition"
+  },
+  {
+    "id": 41,
+    "text": "Strive not to be a success, but rather to be of value.",
+    "author": "Albert Einstein",
+    "category": "Success & Ambition"
+  },
+  {
+    "id": 42,
+    "text": "Two roads diverged in a wood, and I took the one less traveled by.",
+    "author": "Robert Frost",
+    "category": "Motivation"
+  },
+  {
+    "id": 43,
+    "text": "The best time to plant a tree was 20 years ago. The second best time is now.",
+    "author": "Chinese Proverb",
+    "category": "Wisdom & Philosophy"
+  },
+  {
+    "id": 44,
+    "text": "I have not failed. I've just found 10,000 ways that won't work.",
+    "author": "Thomas Edison",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 45,
+    "text": "The journey of a thousand miles begins with one step.",
+    "author": "Lao Tzu",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 46,
+    "text": "Learn as if you will live forever, live like you will die tomorrow.",
+    "author": "Mahatma Gandhi",
+    "category": "Mindfulness & Peace"
+  },
+  {
+    "id": 47,
+    "text": "What we think, we become.",
+    "author": "Buddha",
+    "category": "Wisdom & Philosophy"
+  },
+  {
+    "id": 48,
+    "text": "All our dreams can come true, if we have the courage to pursue them.",
+    "author": "Walt Disney",
+    "category": "Success & Ambition"
+  },
+  {
+    "id": 49,
+    "text": "Happiness is not something readymade. It comes from your own actions.",
+    "author": "Dalai Lama",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 50,
+    "text": "The greatest glory in living lies not in never falling, but in rising every time we fall.",
+    "author": "Nelson Mandela",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 51,
+    "text": "It's not whether you get knocked down, it's whether you get up.",
+    "author": "Vince Lombardi",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 52,
+    "text": "Pain is temporary. Quitting lasts forever.",
+    "author": "Lance Armstrong",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 53,
+    "text": "The successful warrior is the average man, with laser-like focus.",
+    "author": "Bruce Lee",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 54,
+    "text": "I fear not the man who has practiced 10,000 kicks once, but the man who has practiced one kick 10,000 times.",
+    "author": "Bruce Lee",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 55,
+    "text": "Don't count the days, make the days count.",
+    "author": "Muhammad Ali",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 56,
+    "text": "I hated every minute of training, but I said, don't quit. Suffer now and live the rest of your life as a champion.",
+    "author": "Muhammad Ali",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 57,
+    "text": "It's the repetition of affirmations that leads to belief. And once that belief becomes a deep conviction, things begin to happen.",
+    "author": "Muhammad Ali",
+    "category": "Wisdom & Philosophy"
+  },
+  {
+    "id": 58,
+    "text": "He who has a why to live can bear almost any how.",
+    "author": "Friedrich Nietzsche",
+    "category": "Mindfulness & Peace"
+  },
+  {
+    "id": 59,
+    "text": "That which does not kill us makes us stronger.",
+    "author": "Friedrich Nietzsche",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 60,
+    "text": "You have power over your mind, not outside events. Realize this, and you will find strength.",
+    "author": "Marcus Aurelius",
+    "category": "Mindfulness & Peace"
+  },
+  {
+    "id": 61,
+    "text": "The impediment to action advances action. What stands in the way becomes the way.",
+    "author": "Marcus Aurelius",
+    "category": "Wisdom & Philosophy"
+  },
+  {
+    "id": 62,
+    "text": "Waste no more time arguing about what a good man should be. Be one.",
+    "author": "Marcus Aurelius",
+    "category": "Wisdom & Philosophy"
+  },
+  {
+    "id": 63,
+    "text": "He suffers more than necessary, who suffers before it is necessary.",
+    "author": "Seneca",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 64,
+    "text": "Difficulties strengthen the mind, as labor does the body.",
+    "author": "Seneca",
+    "category": "Mindfulness & Peace"
+  },
+  {
+    "id": 65,
+    "text": "It is not that we have a short time to live, but that we waste a lot of it.",
+    "author": "Seneca",
+    "category": "Mindfulness & Peace"
+  },
+  {
+    "id": 66,
+    "text": "First say to yourself what you would be, and then do what you have to do.",
+    "author": "Epictetus",
+    "category": "Motivation"
+  },
+  {
+    "id": 67,
+    "text": "No man is free who is not master of himself.",
+    "author": "Epictetus",
+    "category": "Motivation"
+  },
+  {
+    "id": 68,
+    "text": "Wealth consists not in having great possessions, but in having few wants.",
+    "author": "Epictetus",
+    "category": "Motivation"
+  },
+  {
+    "id": 69,
+    "text": "The line separating good and evil passes through every human heart.",
+    "author": "Aleksandr Solzhenitsyn",
+    "category": "Mindfulness & Peace"
+  },
+  {
+    "id": 70,
+    "text": "Man is not, strictly speaking, made to be happy. He is made to deserve happiness.",
+    "author": "Fyodor Dostoevsky",
+    "category": "Mindfulness & Peace"
+  },
+  {
+    "id": 71,
+    "text": "Pain and suffering are always inevitable for a large intelligence and a deep heart.",
+    "author": "Fyodor Dostoevsky",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 72,
+    "text": "The cave you fear to enter holds the treasure you seek.",
+    "author": "Joseph Campbell",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 73,
+    "text": "Where you stumble and fall, there you will find gold.",
+    "author": "Joseph Campbell",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 74,
+    "text": "A ship in harbor is safe, but that is not what ships are built for.",
+    "author": "John A. Shedd",
+    "category": "Motivation"
+  },
+  {
+    "id": 75,
+    "text": "Discipline is the bridge between goals and accomplishment.",
+    "author": "Jim Rohn",
+    "category": "Success & Ambition"
+  },
+  {
+    "id": 76,
+    "text": "We must all suffer one of two things: the pain of discipline or the pain of regret.",
+    "author": "Jim Rohn",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 77,
+    "text": "Motivation is what gets you started. Habit is what keeps you going.",
+    "author": "Jim Ryun",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 78,
+    "text": "You don't have to be great to start, but you have to start to be great.",
+    "author": "Zig Ziglar",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 79,
+    "text": "There is no elevator to success. You have to take the stairs.",
+    "author": "Zig Ziglar",
+    "category": "Success & Ambition"
+  },
+  {
+    "id": 80,
+    "text": "Either you run the day, or the day runs you.",
+    "author": "Jim Rohn",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 81,
+    "text": "If you are not willing to risk the usual, you will have to settle for the ordinary.",
+    "author": "Jim Rohn",
+    "category": "Motivation"
+  },
+  {
+    "id": 82,
+    "text": "The pain you feel today will be the strength you feel tomorrow.",
+    "author": "Arnold Schwarzenegger",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 83,
+    "text": "Strength does not come from winning. Your struggles develop your strengths.",
+    "author": "Arnold Schwarzenegger",
+    "category": "Motivation"
+  },
+  {
+    "id": 84,
+    "text": "The last three or four reps is what makes the muscle grow.",
+    "author": "Arnold Schwarzenegger",
+    "category": "Motivation"
+  },
+  {
+    "id": 85,
+    "text": "I've failed over and over and over again in my life, and that is why I succeed.",
+    "author": "Michael Jordan",
+    "category": "Mindfulness & Peace"
+  },
+  {
+    "id": 86,
+    "text": "I can accept failure, everyone fails at something. But I can't accept not trying.",
+    "author": "Michael Jordan",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 87,
+    "text": "Talent wins games, but teamwork and intelligence win championships.",
+    "author": "Michael Jordan",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 88,
+    "text": "The moment you give up is the moment you let someone else win.",
+    "author": "Kobe Bryant",
+    "category": "Motivation"
+  },
+  {
+    "id": 89,
+    "text": "Everything negative, pressure, challenges, is all an opportunity for me to rise.",
+    "author": "Kobe Bryant",
+    "category": "Success & Ambition"
+  },
+  {
+    "id": 90,
+    "text": "Great things come from hard work and perseverance. No excuses.",
+    "author": "Kobe Bryant",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 91,
+    "text": "If you're afraid to fail, then you're probably going to fail.",
+    "author": "Kobe Bryant",
+    "category": "Motivation"
+  },
+  {
+    "id": 92,
+    "text": "Champions keep playing until they get it right.",
+    "author": "Billie Jean King",
+    "category": "Success & Ambition"
+  },
+  {
+    "id": 93,
+    "text": "You are never too old to set another goal or to dream a new dream.",
+    "author": "C.S. Lewis",
+    "category": "Success & Ambition"
+  },
+  {
+    "id": 94,
+    "text": "It is our choices that show what we truly are, far more than our abilities.",
+    "author": "J.K. Rowling",
+    "category": "Motivation"
+  },
+  {
+    "id": 95,
+    "text": "Rock bottom became the solid foundation on which I rebuilt my life.",
+    "author": "J.K. Rowling",
+    "category": "Mindfulness & Peace"
+  },
+  {
+    "id": 96,
+    "text": "There is no education like adversity.",
+    "author": "Benjamin Disraeli",
+    "category": "Motivation"
+  },
+  {
+    "id": 97,
+    "text": "Adversity causes some men to break, others to break records.",
+    "author": "William Arthur Ward",
+    "category": "Creativity & Art"
+  },
+  {
+    "id": 98,
+    "text": "The obstacle in the path becomes the path. Never forget, within every obstacle is an opportunity to improve our condition.",
+    "author": "Ryan Holiday",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 99,
+    "text": "Discipline equals freedom.",
+    "author": "Jocko Willink",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 100,
+    "text": "The only easy day was yesterday.",
+    "author": "U.S. Navy SEALs Motto",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 101,
+    "text": "Get comfortable being uncomfortable.",
+    "author": "Jocko Willink",
+    "category": "Motivation"
+  },
+  {
+    "id": 102,
+    "text": "Amateurs sit and wait for inspiration, the rest of us just get up and go to work.",
+    "author": "Stephen King",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 103,
+    "text": "You can't wait for inspiration. You have to go after it with a club.",
+    "author": "Jack London",
+    "category": "Motivation"
+  },
+  {
+    "id": 104,
+    "text": "I would rather die of passion than of boredom.",
+    "author": "Vincent van Gogh",
+    "category": "Motivation"
+  },
+  {
+    "id": 105,
+    "text": "What is not started today is never finished tomorrow.",
+    "author": "Johann Wolfgang von Goethe",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 106,
+    "text": "Nothing in the world can take the place of persistence.",
+    "author": "Calvin Coolidge",
+    "category": "Creativity & Art"
+  },
+  {
+    "id": 107,
+    "text": "The world breaks everyone, and afterward, many are strong at the broken places.",
+    "author": "Ernest Hemingway",
+    "category": "Creativity & Art"
+  },
+  {
+    "id": 108,
+    "text": "Courage is grace under pressure.",
+    "author": "Ernest Hemingway",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 109,
+    "text": "Man can be destroyed but not defeated.",
+    "author": "Ernest Hemingway",
+    "category": "Wisdom & Philosophy"
+  },
+  {
+    "id": 110,
+    "text": "Do not go gentle into that good night. Rage, rage against the dying of the light.",
+    "author": "Dylan Thomas",
+    "category": "Motivation"
+  },
+  {
+    "id": 111,
+    "text": "The dogs bark, but the caravan moves on.",
+    "author": "Arab Proverb",
+    "category": "Motivation"
+  },
+  {
+    "id": 112,
+    "text": "A smooth sea never made a skilled sailor.",
+    "author": "Franklin D. Roosevelt",
+    "category": "Motivation"
+  },
+  {
+    "id": 113,
+    "text": "The credit belongs to the man who is actually in the arena.",
+    "author": "Theodore Roosevelt",
+    "category": "Motivation"
+  },
+  {
+    "id": 114,
+    "text": "Far and away the best prize that life offers is the chance to work hard at work worth doing.",
+    "author": "Theodore Roosevelt",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 115,
+    "text": "Nothing worth having comes easy.",
+    "author": "Theodore Roosevelt",
+    "category": "Motivation"
+  },
+  {
+    "id": 116,
+    "text": "Do the thing you fear most and the death of fear is certain.",
+    "author": "Ralph Waldo Emerson",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 117,
+    "text": "For every minute you remain angry, you give up sixty seconds of peace of mind.",
+    "author": "Ralph Waldo Emerson",
+    "category": "Mindfulness & Peace"
+  },
+  {
+    "id": 118,
+    "text": "Nothing great was ever achieved without enthusiasm.",
+    "author": "Ralph Waldo Emerson",
+    "category": "Success & Ambition"
+  },
+  {
+    "id": 119,
+    "text": "Once you replace negative thoughts with positive ones, you'll start having positive results.",
+    "author": "Willie Nelson",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 120,
+    "text": "The mind is its own place, and in itself can make a heaven of hell, a hell of heaven.",
+    "author": "John Milton",
+    "category": "Mindfulness & Peace"
+  },
+  {
+    "id": 121,
+    "text": "The wound is the place where the light enters you.",
+    "author": "Rumi",
+    "category": "Motivation"
+  },
+  {
+    "id": 122,
+    "text": "Yesterday I was clever, so I wanted to change the world. Today I am wise, so I am changing myself.",
+    "author": "Rumi",
+    "category": "Creativity & Art"
+  },
+  {
+    "id": 123,
+    "text": "Raise your words, not your voice. It is rain that grows flowers, not thunder.",
+    "author": "Rumi",
+    "category": "Motivation"
+  },
+  {
+    "id": 124,
+    "text": "The struggle you're in today is developing the strength you need for tomorrow.",
+    "author": "Robert Tew",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 125,
+    "text": "Comfort is the enemy of achievement.",
+    "author": "Farrah Gray",
+    "category": "Success & Ambition"
+  },
+  {
+    "id": 126,
+    "text": "Fatigue makes cowards of us all.",
+    "author": "Vince Lombardi",
+    "category": "Motivation"
+  },
+  {
+    "id": 127,
+    "text": "The price of success is hard work, dedication to the job at hand, and the determination that whether we win or lose, we have applied the best of ourselves.",
+    "author": "Vince Lombardi",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 128,
+    "text": "Winning isn't everything, but wanting to win is.",
+    "author": "Vince Lombardi",
+    "category": "Motivation"
+  },
+  {
+    "id": 129,
+    "text": "If you're going through hell, keep going.",
+    "author": "Winston Churchill",
+    "category": "Motivation"
+  },
+  {
+    "id": 130,
+    "text": "Never, never, never give up.",
+    "author": "Winston Churchill",
+    "category": "Motivation"
+  },
+  {
+    "id": 131,
+    "text": "Attitude is a little thing that makes a big difference.",
+    "author": "Winston Churchill",
+    "category": "Motivation"
+  },
+  {
+    "id": 132,
+    "text": "A pessimist sees the difficulty in every opportunity; an optimist sees the opportunity in every difficulty.",
+    "author": "Winston Churchill",
+    "category": "Success & Ambition"
+  },
+  {
+    "id": 133,
+    "text": "Continuous effort, not strength or intelligence, is the key to unlocking our potential.",
+    "author": "Winston Churchill",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 134,
+    "text": "You will never win if you never begin.",
+    "author": "Helen Rowland",
+    "category": "Motivation"
+  },
+  {
+    "id": 135,
+    "text": "It is hard to fail, but it is worse never to have tried to succeed.",
+    "author": "Theodore Roosevelt",
+    "category": "Motivation"
+  },
+  {
+    "id": 136,
+    "text": "Only those who dare to fail greatly can ever achieve greatly.",
+    "author": "Robert F. Kennedy",
+    "category": "Success & Ambition"
+  },
+  {
+    "id": 137,
+    "text": "One who fears failure limits his activities.",
+    "author": "Henry Ford",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 138,
+    "text": "Failure is simply the opportunity to begin again, this time more intelligently.",
+    "author": "Henry Ford",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 139,
+    "text": "Obstacles are those frightful things you see when you take your eyes off your goal.",
+    "author": "Henry Ford",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 140,
+    "text": "If everything seems under control, you're not going fast enough.",
+    "author": "Mario Andretti",
+    "category": "Motivation"
+  },
+  {
+    "id": 141,
+    "text": "To give anything less than your best is to sacrifice the gift.",
+    "author": "Steve Prefontaine",
+    "category": "Motivation"
+  },
+  {
+    "id": 142,
+    "text": "Somebody may beat me, but they are going to have to bleed to do it.",
+    "author": "Steve Prefontaine",
+    "category": "Motivation"
+  },
+  {
+    "id": 143,
+    "text": "The man who has confidence in himself gains the confidence of others.",
+    "author": "Hasidic Proverb",
+    "category": "Motivation"
+  },
+  {
+    "id": 144,
+    "text": "If you want to lift yourself up, lift up someone else.",
+    "author": "Booker T. Washington",
+    "category": "Motivation"
+  },
+  {
+    "id": 145,
+    "text": "Success is to be measured not so much by the position that one has reached in life as by the obstacles which he has overcome.",
+    "author": "Booker T. Washington",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 146,
+    "text": "Nothing ever comes to one, that is worth having, except as a result of hard work.",
+    "author": "Booker T. Washington",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 147,
+    "text": "I am not a product of my circumstances. I am a product of my decisions.",
+    "author": "Stephen Covey",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 148,
+    "text": "Live out of your imagination, not your history.",
+    "author": "Stephen Covey",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 149,
+    "text": "Between stimulus and response there is a space. In that space is our power to choose our response.",
+    "author": "Viktor Frankl",
+    "category": "Motivation"
+  },
+  {
+    "id": 150,
+    "text": "When we are no longer able to change a situation, we are challenged to change ourselves.",
+    "author": "Viktor Frankl",
+    "category": "Creativity & Art"
+  },
+  {
+    "id": 151,
+    "text": "Everything can be taken from a man but one thing: the last of the human freedoms, to choose one's attitude in any given set of circumstances.",
+    "author": "Viktor Frankl",
+    "category": "Motivation"
+  },
+  {
+    "id": 152,
+    "text": "Character cannot be developed in ease and quiet. Only through experience of trial and suffering can the soul be strengthened.",
+    "author": "Helen Keller",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 153,
+    "text": "Although the world is full of suffering, it is also full of the overcoming of it.",
+    "author": "Helen Keller",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 154,
+    "text": "Life is either a daring adventure or nothing at all.",
+    "author": "Helen Keller",
+    "category": "Mindfulness & Peace"
+  },
+  {
+    "id": 155,
+    "text": "The greater the obstacle, the more glory in overcoming it.",
+    "author": "Molière",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 156,
+    "text": "Difficult roads often lead to beautiful destinations.",
+    "author": "Zig Ziglar",
+    "category": "Motivation"
+  },
+  {
+    "id": 157,
+    "text": "It's not the load that breaks you down, it's the way you carry it.",
+    "author": "Lou Holtz",
+    "category": "Wisdom & Philosophy"
+  },
+  {
+    "id": 158,
+    "text": "Life is 10% what happens to you and 90% how you react to it.",
+    "author": "Charles R. Swindoll",
+    "category": "Mindfulness & Peace"
+  },
+  {
+    "id": 159,
+    "text": "Fall down seven times, get up eight.",
+    "author": "Japanese Proverb",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 160,
+    "text": "The bamboo that bends is stronger than the oak that resists.",
+    "author": "Japanese Proverb",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 161,
+    "text": "A diamond is merely a lump of coal that did well under pressure.",
+    "author": "Henry Kissinger",
+    "category": "Motivation"
+  },
+  {
+    "id": 162,
+    "text": "The gem cannot be polished without friction, nor man perfected without trials.",
+    "author": "Confucius",
+    "category": "Motivation"
+  },
+  {
+    "id": 163,
+    "text": "It does not matter how slowly you go as long as you do not stop.",
+    "author": "Confucius",
+    "category": "Wisdom & Philosophy"
+  },
+  {
+    "id": 164,
+    "text": "Our greatest glory is not in never falling, but in rising every time we fall.",
+    "author": "Confucius",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 165,
+    "text": "He who conquers himself is the mightiest warrior.",
+    "author": "Confucius",
+    "category": "Motivation"
+  },
+  {
+    "id": 166,
+    "text": "The palest ink is better than the best memory.",
+    "author": "Chinese Proverb",
+    "category": "Motivation"
+  },
+  {
+    "id": 167,
+    "text": "A journey of a thousand miles begins with a single step.",
+    "author": "Lao Tzu",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 168,
+    "text": "Mastering others is strength. Mastering yourself is true power.",
+    "author": "Lao Tzu",
+    "category": "Motivation"
+  },
+  {
+    "id": 169,
+    "text": "Nature does not hurry, yet everything is accomplished.",
+    "author": "Lao Tzu",
+    "category": "Mindfulness & Peace"
+  },
+  {
+    "id": 170,
+    "text": "The world is won by those who let it go.",
+    "author": "Lao Tzu",
+    "category": "Creativity & Art"
+  },
+  {
+    "id": 171,
+    "text": "When the going gets tough, the tough get going.",
+    "author": "Joseph P. Kennedy",
+    "category": "Motivation"
+  },
+  {
+    "id": 172,
+    "text": "Success is not the key to happiness. Happiness is the key to success.",
+    "author": "Albert Schweitzer",
+    "category": "Mindfulness & Peace"
+  },
+  {
+    "id": 173,
+    "text": "The really important kind of freedom involves attention, and awareness, and discipline.",
+    "author": "David Foster Wallace",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 174,
+    "text": "Suffering is temporary. It can last a minute, a day, or a year, but eventually, it will subside and something else will take its place.",
+    "author": "Lance Armstrong",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 175,
+    "text": "If you don't like the road you're walking, start paving another one.",
+    "author": "Dolly Parton",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 176,
+    "text": "There is no royal road to anything. One thing at a time, all things in succession.",
+    "author": "Booker T. Washington",
+    "category": "Success & Ambition"
+  },
+  {
+    "id": 177,
+    "text": "The only place where success comes before work is in the dictionary.",
+    "author": "Vidal Sassoon",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 178,
+    "text": "Genius is one percent inspiration and ninety-nine percent perspiration.",
+    "author": "Thomas Edison",
+    "category": "Motivation"
+  },
+  {
+    "id": 179,
+    "text": "Many of life's failures are people who did not realize how close they were to success when they gave up.",
+    "author": "Thomas Edison",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 180,
+    "text": "I have not failed. I've just found 10,000 ways that won't work.",
+    "author": "Thomas Edison",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 181,
+    "text": "Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.",
+    "author": "Thomas Edison",
+    "category": "Wisdom & Philosophy"
+  },
+  {
+    "id": 182,
+    "text": "You must expect great things of yourself before you can do them.",
+    "author": "Michael Jordan",
+    "category": "Motivation"
+  },
+  {
+    "id": 183,
+    "text": "Limits, like fears, are often just an illusion.",
+    "author": "Michael Jordan",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 184,
+    "text": "There are no shortcuts to any place worth going.",
+    "author": "Beverly Sills",
+    "category": "Motivation"
+  },
+  {
+    "id": 185,
+    "text": "Hardships often prepare ordinary people for an extraordinary destiny.",
+    "author": "C.S. Lewis",
+    "category": "Courage & Resilience"
+  },
+  {
+    "id": 186,
+    "text": "You can't go back and change the beginning, but you can start where you are and change the ending.",
+    "author": "C.S. Lewis",
+    "category": "Creativity & Art"
+  },
+  {
+    "id": 187,
+    "text": "Everyone wants to eat but few want to hunt.",
+    "author": "African Proverb",
+    "category": "Motivation"
+  },
+  {
+    "id": 188,
+    "text": "Smooth seas do not make skillful sailors.",
+    "author": "African Proverb",
+    "category": "Motivation"
+  },
+  {
+    "id": 189,
+    "text": "If you want to go fast, go alone. If you want to go far, go together.",
+    "author": "African Proverb",
+    "category": "Motivation"
+  },
+  {
+    "id": 190,
+    "text": "However difficult life may seem, there is always something you can do and succeed at.",
+    "author": "Stephen Hawking",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 191,
+    "text": "Intelligence is the ability to adapt to change.",
+    "author": "Stephen Hawking",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 192,
+    "text": "It matters if you just don't give up.",
+    "author": "Stephen Hawking",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 193,
+    "text": "Study hard what interests you the most in the most undisciplined, irreverent and original manner possible.",
+    "author": "Richard Feynman",
+    "category": "Discipline & Focus"
+  },
+  {
+    "id": 194,
+    "text": "The first principle is that you must not fool yourself, and you are the easiest person to fool.",
+    "author": "Richard Feynman",
+    "category": "Motivation"
+  },
+  {
+    "id": 195,
+    "text": "The best revenge is massive success.",
+    "author": "Frank Sinatra",
+    "category": "Success & Ambition"
+  },
+  {
+    "id": 196,
+    "text": "Do not wait to strike till the iron is hot, but make it hot by striking.",
+    "author": "William Butler Yeats",
+    "category": "Motivation"
+  },
+  {
+    "id": 197,
+    "text": "He that is good for making excuses is seldom good for anything else.",
+    "author": "Benjamin Franklin",
+    "category": "Motivation"
+  },
+  {
+    "id": 198,
+    "text": "Energy and persistence conquer all things.",
+    "author": "Benjamin Franklin",
+    "category": "Motivation"
+  },
+  {
+    "id": 199,
+    "text": "Well done is better than well said.",
+    "author": "Benjamin Franklin",
+    "category": "Motivation"
+  },
+  {
+    "id": 200,
+    "text": "By failing to prepare, you are preparing to fail.",
+    "author": "Benjamin Franklin",
+    "category": "Motivation"
+  }
+]
