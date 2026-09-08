@@ -9,7 +9,11 @@ export function getDb(): DatabaseSync {
     return dbInstance;
   }
 
-  const dbPath = process.env.DATABASE_PATH || path.join(process.cwd(), "data", "screensaver.db");
+  const defaultPath = process.env.VERCEL
+    ? path.join("/tmp", "screensaver.db")
+    : path.join(process.cwd(), "data", "screensaver.db");
+
+  const dbPath = process.env.DATABASE_PATH || defaultPath;
   const dataDir = path.dirname(dbPath);
   if (!fs.existsSync(dataDir)) {
     fs.mkdirSync(dataDir, { recursive: true });
