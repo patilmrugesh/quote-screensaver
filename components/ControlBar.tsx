@@ -128,7 +128,7 @@ export default function ControlBar({
         setIsBarHovered(false);
         resetIdleTimer();
       }}
-      className={`fixed bottom-6 left-1/2 z-50 flex -translate-x-1/2 items-center gap-1.5 rounded-full border border-white/15 bg-neutral-950/80 px-3.5 py-2.5 shadow-2xl backdrop-blur-xl transition-all duration-500 ${
+      className={`fixed bottom-4 sm:bottom-6 left-1/2 z-50 flex -translate-x-1/2 items-center gap-1 sm:gap-1.5 max-w-[96vw] overflow-x-auto no-scrollbar sm:overflow-visible rounded-full border border-white/15 bg-neutral-950/85 px-2 sm:px-3.5 py-1.5 sm:py-2.5 shadow-2xl backdrop-blur-xl transition-all duration-500 shrink-0 ${
         isBarShown ? "opacity-100 translate-y-0" : "pointer-events-none opacity-0 translate-y-4"
       }`}
     >

@@ -59,7 +59,7 @@ export default function FavoritesModal({
         role="dialog"
         aria-label="Favorite Quotes"
         aria-hidden={!isOpen}
-        className={`fixed left-0 top-0 z-50 flex h-screen w-96 max-w-[90vw] flex-col border-r border-white/10 bg-neutral-900 px-6 py-6 text-neutral-100 shadow-2xl transition-transform duration-300 ease-in-out ${
+        className={`fixed left-0 top-0 z-50 flex h-screen w-full sm:w-96 max-w-full sm:max-w-[90vw] flex-col border-r border-white/10 bg-neutral-900 px-4 sm:px-6 py-4 sm:py-6 text-neutral-100 shadow-2xl transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >

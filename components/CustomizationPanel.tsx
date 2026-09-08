@@ -50,15 +50,15 @@ export default function CustomizationPanel({
         role="dialog"
         aria-label="Screensaver Customization"
         aria-hidden={!isOpen}
-        className={`fixed right-0 top-0 z-50 flex h-screen w-[420px] max-w-[92vw] flex-col border-l border-white/10 bg-neutral-900 text-neutral-100 shadow-2xl transition-transform duration-300 ease-in-out ${
+        className={`fixed right-0 top-0 z-50 flex h-screen w-full sm:w-[420px] max-w-full sm:max-w-[92vw] flex-col border-l border-white/10 bg-neutral-900 text-neutral-100 shadow-2xl transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-white/10 px-6 py-4">
+        <div className="flex items-center justify-between border-b border-white/10 px-4 sm:px-6 py-3.5 sm:py-4">
           <div className="flex items-center gap-2">
             <Sparkles size={19} className="text-amber-400" />
-            <h2 className="text-base font-semibold tracking-wide">Customization</h2>
+            <h2 className="text-sm sm:text-base font-semibold tracking-wide">Customization</h2>
           </div>
           <button
             type="button"
@@ -71,7 +71,7 @@ export default function CustomizationPanel({
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex border-b border-white/10 bg-neutral-950/40 px-4 text-xs font-medium">
+        <div className="flex border-b border-white/10 bg-neutral-950/40 px-2 sm:px-4 text-xs font-medium overflow-x-auto no-scrollbar">
           <button
             type="button"
             onClick={() => setActiveTab("appearance")}

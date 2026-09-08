@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback, useMemo } from "react";
+import { useEffect, useState, useCallback, useMemo, useRef } from "react";
 import quotesData from "@/data/quotes.json";
 import { Quote } from "@/lib/types";
 import { useCustomization } from "@/hooks/useCustomization";
@@ -23,7 +23,7 @@ import TodoHabitDrawer from "@/components/TodoHabitDrawer";
 import AuthModal from "@/components/AuthModal";
 import { usePomodoro } from "@/hooks/usePomodoro";
 import { useTodoHabits } from "@/hooks/useTodoHabits";
-import { useAuth } from "@/hooks/useAuth";
+import { useAuth, applyCloudDataToLocalStorage } from "@/hooks/useAuth";
 
 const allQuotes: Quote[] = quotesData as Quote[];
 
@@ -57,6 +57,34 @@ export default function Home() {
     }
     return null;
   }, [settings.useCustomQuote, settings.customQuoteText, settings.customQuoteAuthor]);
+
+  // Automatic Background Cloud Sync
+  const syncPayload = useMemo(() => ({
+    habits: todoHabits.habits,
+    tasks: todoHabits.tasks,
+    sessions: pomodoro.sessions,
+    gamification: pomodoro.gamification,
+    favorites: favorites,
+    settings: settings,
+  }), [todoHabits.habits, todoHabits.tasks, pomodoro.sessions, pomodoro.gamification, favorites, settings]);
+
+  const authUser = auth.user;
+  const syncToCloud = auth.syncToCloud;
+  const isFirstSyncRef = useRef(true);
+
+  useEffect(() => {
+    if (isFirstSyncRef.current) {
+      isFirstSyncRef.current = false;
+      return;
+    }
+    if (!authUser) return;
+
+    const timer = setTimeout(() => {
+      void syncToCloud(syncPayload);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [syncPayload, authUser, syncToCloud]);
 
   // Quote shuffle controller
   const {
@@ -382,18 +410,7 @@ export default function Home() {
           settings: settings,
         })}
         onApplySyncedData={(data) => {
-          const syncData = data as {
-            habits?: typeof todoHabits.habits;
-            tasks?: typeof todoHabits.tasks;
-          };
-          if (syncData.habits && typeof window !== "undefined") {
-            window.localStorage.setItem("study_todo_habits", JSON.stringify(syncData.habits));
-            window.dispatchEvent(new Event("todo-habits-changed"));
-          }
-          if (syncData.tasks && typeof window !== "undefined") {
-            window.localStorage.setItem("study_todo_tasks", JSON.stringify(syncData.tasks));
-            window.dispatchEvent(new Event("todo-tasks-changed"));
-          }
+          applyCloudDataToLocalStorage(data as Parameters<typeof applyCloudDataToLocalStorage>[0]);
         }}
         clearError={auth.clearError}
       />

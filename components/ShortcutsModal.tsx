@@ -43,14 +43,14 @@ export default function ShortcutsModal({ isOpen, onClose }: ShortcutsModalProps)
       role="dialog"
       aria-modal="true"
       aria-label="Keyboard Shortcuts"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4"
     >
       <div
         className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
         onClick={onClose}
       />
 
-      <div className="relative z-10 w-full max-w-md rounded-2xl border border-white/15 bg-neutral-900/95 p-6 text-neutral-100 shadow-2xl backdrop-blur-xl">
+      <div className="relative z-10 w-full max-w-md max-h-[90vh] overflow-y-auto no-scrollbar rounded-2xl border border-white/15 bg-neutral-900/95 p-5 sm:p-6 text-neutral-100 shadow-2xl backdrop-blur-xl">
         <div className="mb-4 flex items-center justify-between border-b border-white/10 pb-3">
           <div className="flex items-center gap-2">
             <Command size={18} className="text-amber-400" />

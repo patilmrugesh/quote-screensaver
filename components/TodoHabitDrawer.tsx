@@ -144,19 +144,19 @@ export default function TodoHabitDrawer({
       <aside
         role="dialog"
         aria-label="Tasks and Habit Tracker"
-        className="fixed right-0 top-0 z-50 flex h-screen w-[520px] max-w-[94vw] flex-col border-l border-white/15 bg-neutral-900/98 text-neutral-100 shadow-2xl backdrop-blur-2xl transition-transform duration-300 select-none"
+        className="fixed right-0 top-0 z-50 flex h-screen w-full sm:w-[520px] max-w-full sm:max-w-[94vw] flex-col border-l border-white/15 bg-neutral-900/98 text-neutral-100 shadow-2xl backdrop-blur-2xl transition-transform duration-300 select-none"
       >
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-white/10 px-6 py-4">
+        <div className="flex items-center justify-between border-b border-white/10 px-4 sm:px-6 py-3 sm:py-4">
           <div className="flex items-center gap-2.5">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-400/20 text-amber-300">
               <CheckSquare size={18} />
             </div>
             <div>
-              <h2 className="text-sm font-extrabold uppercase tracking-wider text-neutral-100">
+              <h2 className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-neutral-100">
                 Tasks & Habit Tracker
               </h2>
-              <span className="text-[11px] font-medium text-neutral-400">
+              <span className="text-[10px] sm:text-[11px] font-medium text-neutral-400">
                 {habitsDoneToday}/{totalBuildHabits} Habits Done Today • +{profile.totalBonusXP} XP
               </span>
             </div>
@@ -173,11 +173,11 @@ export default function TodoHabitDrawer({
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex border-b border-white/10 bg-neutral-950/40 px-4 text-xs font-semibold">
+        <div className="flex border-b border-white/10 bg-neutral-950/40 px-2 sm:px-4 text-xs font-semibold overflow-x-auto no-scrollbar">
           <button
             type="button"
             onClick={() => setActiveTab("habits")}
-            className={`flex items-center gap-1.5 border-b-2 px-3.5 py-3 transition ${
+            className={`flex items-center gap-1 sm:gap-1.5 border-b-2 px-2.5 sm:px-3.5 py-2.5 sm:py-3 transition whitespace-nowrap ${
               activeTab === "habits"
                 ? "border-amber-400 text-amber-300"
                 : "border-transparent text-neutral-400 hover:text-neutral-200"
@@ -190,20 +190,20 @@ export default function TodoHabitDrawer({
           <button
             type="button"
             onClick={() => setActiveTab("tasks")}
-            className={`flex items-center gap-1.5 border-b-2 px-3.5 py-3 transition ${
+            className={`flex items-center gap-1 sm:gap-1.5 border-b-2 px-2.5 sm:px-3.5 py-2.5 sm:py-3 transition whitespace-nowrap ${
               activeTab === "tasks"
                 ? "border-amber-400 text-amber-300"
                 : "border-transparent text-neutral-400 hover:text-neutral-200"
             }`}
           >
             <CheckSquare size={14} />
-            <span>To-Do ({tasks.filter((t) => !t.completed).length})</span>
+            <span>Tasks ({tasks.filter((t) => !t.completed).length})</span>
           </button>
 
           <button
             type="button"
             onClick={() => setActiveTab("templates")}
-            className={`flex items-center gap-1.5 border-b-2 px-3.5 py-3 transition ${
+            className={`flex items-center gap-1 sm:gap-1.5 border-b-2 px-2.5 sm:px-3.5 py-2.5 sm:py-3 transition whitespace-nowrap ${
               activeTab === "templates"
                 ? "border-amber-400 text-amber-300"
                 : "border-transparent text-neutral-400 hover:text-neutral-200"
@@ -216,7 +216,7 @@ export default function TodoHabitDrawer({
           <button
             type="button"
             onClick={() => setActiveTab("analytics")}
-            className={`flex items-center gap-1.5 border-b-2 px-3.5 py-3 transition ${
+            className={`flex items-center gap-1 sm:gap-1.5 border-b-2 px-2.5 sm:px-3.5 py-2.5 sm:py-3 transition whitespace-nowrap ${
               activeTab === "analytics"
                 ? "border-amber-400 text-amber-300"
                 : "border-transparent text-neutral-400 hover:text-neutral-200"
@@ -228,7 +228,7 @@ export default function TodoHabitDrawer({
         </div>
 
         {/* Tab Body */}
-        <div className="flex-1 overflow-y-auto p-6">
+        <div className="flex-1 overflow-y-auto p-4 sm:p-6 pb-20 sm:pb-8">
           {/* TAB 1: HABITS & BAD HABIT BREAKER */}
           {activeTab === "habits" && (
             <div className="space-y-6">

@@ -66,7 +66,7 @@ export default function PomodoroModal({
       role="dialog"
       aria-modal="true"
       aria-label="Pomodoro Focus"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 select-none"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 select-none"
     >
       {/* Backdrop */}
       <div
@@ -76,37 +76,37 @@ export default function PomodoroModal({
 
       {/* Main Container */}
       <div
-        className={`relative z-10 flex w-full max-w-lg flex-col rounded-3xl border p-6 text-neutral-100 shadow-2xl backdrop-blur-2xl transition-all sm:p-8 ${
+        className={`relative z-10 flex w-full max-w-lg max-h-[92vh] overflow-y-auto no-scrollbar flex-col rounded-3xl border p-5 sm:p-8 text-neutral-100 shadow-2xl backdrop-blur-2xl transition-all ${
           isBreak
             ? "border-emerald-500/30 bg-gradient-to-b from-emerald-950/80 to-neutral-950/95"
             : "border-rose-500/30 bg-gradient-to-b from-rose-950/70 to-neutral-950/95"
         }`}
       >
         {/* Top Header Bar */}
-        <div className="mb-6 flex items-center justify-between border-b border-white/10 pb-4">
+        <div className="mb-4 sm:mb-6 flex items-center justify-between border-b border-white/10 pb-3 sm:pb-4">
           <div className="flex items-center gap-2">
             <span className="text-xl">{isBreak ? "☕" : "🍅"}</span>
-            <h2 className="text-sm font-extrabold tracking-wider uppercase text-neutral-100">
+            <h2 className="text-xs sm:text-sm font-extrabold tracking-wider uppercase text-neutral-100">
               Pomodoro Focus
             </h2>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2">
             <button
               type="button"
               onClick={onOpenReport}
-              className="flex items-center gap-1 rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-xs font-semibold text-neutral-200 transition hover:bg-white/15 hover:text-white"
+              className="flex items-center gap-1 rounded-lg border border-white/10 bg-white/5 px-2 sm:px-2.5 py-1 sm:py-1.5 text-xs font-semibold text-neutral-200 transition hover:bg-white/15 hover:text-white"
             >
-              <BarChart2 size={14} className="text-amber-400" />
+              <BarChart2 size={13} className="text-amber-400" />
               <span>Report</span>
             </button>
 
             <button
               type="button"
               onClick={onOpenSettings}
-              className="flex items-center gap-1 rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-xs font-semibold text-neutral-200 transition hover:bg-white/15 hover:text-white"
+              className="flex items-center gap-1 rounded-lg border border-white/10 bg-white/5 px-2 sm:px-2.5 py-1 sm:py-1.5 text-xs font-semibold text-neutral-200 transition hover:bg-white/15 hover:text-white"
             >
-              <Settings size={14} className="text-neutral-300" />
+              <Settings size={13} className="text-neutral-300" />
               <span>Setting</span>
             </button>
 
@@ -114,7 +114,7 @@ export default function PomodoroModal({
               type="button"
               aria-label="Minimize timer"
               onClick={onClose}
-              className="rounded-full p-1.5 text-neutral-400 transition hover:bg-white/10 hover:text-white"
+              className="rounded-full p-1 sm:p-1.5 text-neutral-400 transition hover:bg-white/10 hover:text-white"
             >
               <X size={18} />
             </button>
@@ -122,11 +122,11 @@ export default function PomodoroModal({
         </div>
 
         {/* Mode Selector Tabs */}
-        <div className="mx-auto mb-8 flex items-center gap-1.5 rounded-full border border-white/10 bg-neutral-900/60 p-1">
+        <div className="mx-auto mb-6 sm:mb-8 flex items-center gap-1 sm:gap-1.5 rounded-full border border-white/10 bg-neutral-900/60 p-1">
           <button
             type="button"
             onClick={() => onSwitchMode("pomodoro")}
-            className={`rounded-full px-4 py-1.5 text-xs font-bold transition-all ${
+            className={`rounded-full px-3 sm:px-4 py-1 sm:py-1.5 text-xs font-bold transition-all ${
               mode === "pomodoro"
                 ? "bg-rose-500 text-white shadow-md"
                 : "text-neutral-400 hover:text-neutral-200"
@@ -138,9 +138,9 @@ export default function PomodoroModal({
           <button
             type="button"
             onClick={() => onSwitchMode("shortBreak")}
-            className={`rounded-full px-4 py-1.5 text-xs font-bold transition-all ${
+            className={`rounded-full px-3 sm:px-4 py-1 sm:py-1.5 text-xs font-bold transition-all ${
               mode === "shortBreak"
-                ? "bg-emerald-500 text-white shadow-md"
+                ? "bg-emerald-600 text-white shadow-md"
                 : "text-neutral-400 hover:text-neutral-200"
             }`}
           >
@@ -150,7 +150,7 @@ export default function PomodoroModal({
           <button
             type="button"
             onClick={() => onSwitchMode("longBreak")}
-            className={`rounded-full px-4 py-1.5 text-xs font-bold transition-all ${
+            className={`rounded-full px-3 sm:px-4 py-1 sm:py-1.5 text-xs font-bold transition-all ${
               mode === "longBreak"
                 ? "bg-emerald-600 text-white shadow-md"
                 : "text-neutral-400 hover:text-neutral-200"
@@ -162,7 +162,7 @@ export default function PomodoroModal({
 
         {/* Large Digital Clock Countdown */}
         <div className="my-2 text-center">
-          <div className="font-mono text-7xl font-black tracking-tight text-white drop-shadow-md sm:text-8xl">
+          <div className="font-mono text-6xl sm:text-7xl md:text-8xl font-black tracking-tight text-white drop-shadow-md tabular-nums">
             {formattedTime}
           </div>
 

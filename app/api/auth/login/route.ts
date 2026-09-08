@@ -34,6 +34,15 @@ export async function POST(request: Request) {
 
     const session = createSession(user.id);
 
+    const cloudData = {
+      habits: Repository.getHabits(user.id),
+      tasks: Repository.getTasks(user.id),
+      sessions: Repository.getPomodoroSessions(user.id),
+      gamification: Repository.getGamification(user.id),
+      favorites: Repository.getFavorites(user.id),
+      settings: Repository.getUserSettings(user.id),
+    };
+
     const response = NextResponse.json({
       success: true,
       user: {
@@ -43,6 +52,7 @@ export async function POST(request: Request) {
         createdAt: user.created_at,
       },
       token: session.token,
+      cloudData,
     });
 
     response.cookies.set("auth_token", session.token, {

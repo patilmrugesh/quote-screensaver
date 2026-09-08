@@ -213,17 +213,17 @@ export default function QuoteDisplay({
       {/* Main Quote Container with key-based pure animation */}
       <div
         key={quote.id}
-        className={`animate-quote-in flex max-w-5xl flex-col transition-all duration-500 ${
+        className={`animate-quote-in flex max-w-5xl w-full px-5 sm:px-10 flex-col transition-all duration-500 ${
           settings.textAlignment === "left"
             ? "items-start text-left"
             : settings.textAlignment === "card"
-            ? "items-center rounded-3xl border border-white/10 bg-black/25 p-8 text-center shadow-2xl backdrop-blur-md sm:p-12"
+            ? "items-center rounded-3xl border border-white/10 bg-black/25 p-6 sm:p-12 text-center shadow-2xl backdrop-blur-md"
             : "items-center text-center"
         }`}
       >
         {/* Category Badge */}
         {quote.category && (
-          <div className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-widest text-amber-300/90 backdrop-blur-xs">
+          <div className="mb-3 sm:mb-4 inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-2.5 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-medium uppercase tracking-widest text-amber-300/90 backdrop-blur-xs">
             <span>{quote.category}</span>
           </div>
         )}
@@ -234,20 +234,20 @@ export default function QuoteDisplay({
           style={{
             color: "var(--quote-text-color)",
             fontFamily: "var(--quote-font-family)",
-            fontSize: "var(--quote-font-size)",
+            fontSize: "clamp(1.4rem, 5.8vw, var(--quote-font-size))",
           }}
         >
           &ldquo;{quote.text}&rdquo;
         </blockquote>
 
         {/* Author Credit & Favorite Quick Toggle */}
-        <div className="mt-6 flex items-center gap-3">
+        <div className="mt-4 sm:mt-6 flex items-center gap-3">
           <p
             className="font-medium opacity-75"
             style={{
               color: "var(--quote-text-color)",
               fontFamily: "var(--quote-font-family)",
-              fontSize: "calc(var(--quote-font-size) * 0.42)",
+              fontSize: "clamp(0.95rem, 3.2vw, calc(var(--quote-font-size) * 0.42))",
             }}
           >
             — {quote.author}

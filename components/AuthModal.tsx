@@ -79,11 +79,11 @@ export function AuthModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md transition-opacity duration-300"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-md transition-opacity duration-300"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-md bg-neutral-900/95 border border-white/10 rounded-2xl shadow-2xl p-6 sm:p-7 text-white overflow-hidden"
+        className="relative w-full max-w-md max-h-[92vh] overflow-y-auto no-scrollbar bg-neutral-900/95 border border-white/10 rounded-2xl shadow-2xl p-5 sm:p-7 text-white overflow-x-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Glow ambient accent */}

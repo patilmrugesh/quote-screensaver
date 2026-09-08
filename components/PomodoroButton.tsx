@@ -19,12 +19,12 @@ export default function PomodoroButton({
   const isBreak = mode === "shortBreak" || mode === "longBreak";
 
   return (
-    <div className="fixed top-6 left-1/2 z-40 -translate-x-1/2 select-none">
+    <div className="fixed top-4 sm:top-6 left-1/2 z-40 -translate-x-1/2 select-none max-w-[92vw]">
       <button
         type="button"
         onClick={onClick}
         aria-label="Open Pomodoro Focus timer"
-        className={`group flex items-center gap-2.5 rounded-full border px-4 py-2 text-xs font-semibold tracking-wide shadow-2xl backdrop-blur-xl transition-all duration-300 hover:scale-105 active:scale-95 ${
+        className={`group flex items-center gap-2 sm:gap-2.5 rounded-full border px-3 sm:px-4 py-1.5 sm:py-2 text-xs font-semibold tracking-wide shadow-2xl backdrop-blur-xl transition-all duration-300 hover:scale-105 active:scale-95 ${
           isRunning
             ? isBreak
               ? "border-emerald-500/40 bg-emerald-950/70 text-emerald-300 ring-2 ring-emerald-500/30"

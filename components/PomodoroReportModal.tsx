@@ -78,7 +78,7 @@ export default function PomodoroReportModal({
       role="dialog"
       aria-modal="true"
       aria-label="Pomodoro Focus Report"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 select-none"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 select-none"
     >
       {/* Backdrop */}
       <div
@@ -87,12 +87,12 @@ export default function PomodoroReportModal({
       />
 
       {/* Modal Container */}
-      <div className="relative z-10 flex h-[620px] max-h-[90vh] w-full max-w-2xl flex-col rounded-2xl border border-white/15 bg-neutral-900/95 text-neutral-100 shadow-2xl backdrop-blur-2xl">
+      <div className="relative z-10 flex h-[620px] max-h-[92vh] w-full max-w-2xl flex-col rounded-2xl border border-white/15 bg-neutral-900/95 text-neutral-100 shadow-2xl backdrop-blur-2xl">
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-white/10 px-6 py-4">
+        <div className="flex items-center justify-between border-b border-white/10 px-4 sm:px-6 py-3 sm:py-4">
           <div className="flex items-center gap-2">
             <BarChart3 size={20} className="text-amber-400" />
-            <h2 className="text-base font-bold uppercase tracking-wider text-neutral-100">
+            <h2 className="text-sm sm:text-base font-bold uppercase tracking-wider text-neutral-100">
               Focus Activity Report
             </h2>
           </div>
@@ -100,14 +100,14 @@ export default function PomodoroReportModal({
             type="button"
             aria-label="Close report"
             onClick={onClose}
-            className="rounded-full p-1 text-neutral-400 transition hover:bg-white/10 hover:text-white"
+            className="rounded-full p-1.5 text-neutral-400 transition hover:bg-white/10 hover:text-white"
           >
             <X size={18} />
           </button>
         </div>
 
         {/* Tab Bar */}
-        <div className="flex border-b border-white/10 bg-neutral-950/40 px-6 text-xs font-semibold">
+        <div className="flex border-b border-white/10 bg-neutral-950/40 px-3 sm:px-6 text-xs font-semibold overflow-x-auto no-scrollbar">
           <button
             type="button"
             onClick={() => setTab("summary")}
