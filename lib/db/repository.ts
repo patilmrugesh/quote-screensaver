@@ -3,6 +3,20 @@ import { hashPassword } from "./auth";
 import type { TaskItem, HabitItem, HabitType, HabitCategory } from "../todoHabitTypes";
 import type { PomodoroSession, GamificationProfile } from "../pomodoroTypes";
 import type { Quote, CustomizationSettings } from "../types";
+import type {
+  Goal,
+  GoalInstance,
+  GoalReview,
+  GoalRecoveryPlan,
+  GoalLevel,
+  GoalImportance,
+  GoalTiming,
+  GoalCategory,
+  GoalRecurrence,
+  GoalStatus,
+  GoalInstanceStatus,
+  RolloverAction,
+} from "../goalTypes";
 
 export interface DbUser {
   id: string;
@@ -410,6 +424,436 @@ export const Repository = {
     stmt.run(userId, JSON.stringify(settings), now);
   },
 
+  // --- GOALS METHODS ---
+
+  getGoals(userId: string, level?: GoalLevel): Goal[] {
+    const db = getDb();
+    let query = "SELECT * FROM goals WHERE user_id = ?";
+    const params: (string | number)[] = [userId];
+    if (level) {
+      query += " AND level = ?";
+      params.push(level);
+    }
+    query += " ORDER BY created_at ASC";
+    const stmt = db.prepare(query);
+    const rows = stmt.all(...params) as Array<{
+      id: string;
+      user_id: string;
+      parent_goal_id: string | null;
+      name: string;
+      description: string | null;
+      level: string;
+      importance: string;
+      timing: string;
+      target_value: number;
+      unit: string;
+      category: string;
+      recurrence: string;
+      status: string;
+      created_at: number;
+      updated_at: number;
+    }>;
+
+    return rows.map((r) => ({
+      id: r.id,
+      userId: r.user_id,
+      parentGoalId: r.parent_goal_id ?? undefined,
+      name: r.name,
+      description: r.description ?? undefined,
+      level: r.level as GoalLevel,
+      importance: r.importance as GoalImportance,
+      timing: r.timing as GoalTiming,
+      targetValue: r.target_value,
+      unit: r.unit,
+      category: r.category as GoalCategory,
+      recurrence: r.recurrence as GoalRecurrence,
+      status: r.status as GoalStatus,
+      createdAt: r.created_at,
+      updatedAt: r.updated_at,
+    }));
+  },
+
+  getGoalById(userId: string, goalId: string): Goal | null {
+    const db = getDb();
+    const stmt = db.prepare("SELECT * FROM goals WHERE id = ? AND user_id = ?");
+    const r = stmt.get(goalId, userId) as {
+      id: string;
+      user_id: string;
+      parent_goal_id: string | null;
+      name: string;
+      description: string | null;
+      level: string;
+      importance: string;
+      timing: string;
+      target_value: number;
+      unit: string;
+      category: string;
+      recurrence: string;
+      status: string;
+      created_at: number;
+      updated_at: number;
+    } | undefined;
+
+    if (!r) return null;
+    return {
+      id: r.id,
+      userId: r.user_id,
+      parentGoalId: r.parent_goal_id ?? undefined,
+      name: r.name,
+      description: r.description ?? undefined,
+      level: r.level as GoalLevel,
+      importance: r.importance as GoalImportance,
+      timing: r.timing as GoalTiming,
+      targetValue: r.target_value,
+      unit: r.unit,
+      category: r.category as GoalCategory,
+      recurrence: r.recurrence as GoalRecurrence,
+      status: r.status as GoalStatus,
+      createdAt: r.created_at,
+      updatedAt: r.updated_at,
+    };
+  },
+
+  upsertGoal(userId: string, goal: Goal): Goal {
+    const db = getDb();
+    const now = Date.now();
+    const goalId = goal.id || `goal_${now}_${Math.random().toString(36).substring(2, 7)}`;
+    const createdAt = goal.createdAt || now;
+    const updatedAt = now;
+
+    const stmt = db.prepare(`
+      INSERT INTO goals (
+        id, user_id, parent_goal_id, name, description,
+        level, importance, timing, target_value, unit,
+        category, recurrence, status, created_at, updated_at
+      )
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      ON CONFLICT(id) DO UPDATE SET
+        parent_goal_id = excluded.parent_goal_id,
+        name = excluded.name,
+        description = excluded.description,
+        level = excluded.level,
+        importance = excluded.importance,
+        timing = excluded.timing,
+        target_value = excluded.target_value,
+        unit = excluded.unit,
+        category = excluded.category,
+        recurrence = excluded.recurrence,
+        status = excluded.status,
+        updated_at = excluded.updated_at
+    `);
+
+    stmt.run(
+      goalId,
+      userId,
+      goal.parentGoalId || null,
+      goal.name,
+      goal.description || null,
+      goal.level,
+      goal.importance,
+      goal.timing,
+      goal.targetValue,
+      goal.unit,
+      goal.category,
+      goal.recurrence,
+      goal.status,
+      createdAt,
+      updatedAt
+    );
+
+    return {
+      ...goal,
+      id: goalId,
+      userId,
+      createdAt,
+      updatedAt,
+    };
+  },
+
+  deleteGoal(userId: string, goalId: string): boolean {
+    const db = getDb();
+    const stmt = db.prepare("DELETE FROM goals WHERE id = ? AND user_id = ?");
+    const result = stmt.run(goalId, userId);
+    return Number(result.changes) > 0;
+  },
+
+  // --- GOAL INSTANCES ---
+
+  getGoalInstances(userId: string, periodKey?: string): GoalInstance[] {
+    const db = getDb();
+    let query = "SELECT * FROM goal_instances WHERE user_id = ?";
+    const params: (string | number)[] = [userId];
+    if (periodKey) {
+      query += " AND period_key = ?";
+      params.push(periodKey);
+    }
+    query += " ORDER BY period_key DESC, created_at ASC";
+    const stmt = db.prepare(query);
+    const rows = stmt.all(...params) as Array<{
+      id: string;
+      goal_id: string;
+      user_id: string;
+      period_key: string;
+      target_value: number;
+      actual_value: number;
+      completion_percentage: number;
+      earned_points: number;
+      possible_points: number;
+      status: string;
+      rollover_action: string | null;
+      created_at: number;
+      updated_at: number;
+    }>;
+
+    return rows.map((r) => ({
+      id: r.id,
+      goalId: r.goal_id,
+      userId: r.user_id,
+      periodKey: r.period_key,
+      targetValue: r.target_value,
+      actualValue: r.actual_value,
+      completionPercentage: r.completion_percentage,
+      earnedPoints: r.earned_points,
+      possiblePoints: r.possible_points,
+      status: r.status as GoalInstanceStatus,
+      rolloverAction: (r.rollover_action as RolloverAction) ?? undefined,
+      createdAt: r.created_at,
+      updatedAt: r.updated_at,
+    }));
+  },
+
+  getGoalInstance(userId: string, goalId: string, periodKey: string): GoalInstance | null {
+    const db = getDb();
+    const stmt = db.prepare("SELECT * FROM goal_instances WHERE user_id = ? AND goal_id = ? AND period_key = ?");
+    const r = stmt.get(userId, goalId, periodKey) as {
+      id: string;
+      goal_id: string;
+      user_id: string;
+      period_key: string;
+      target_value: number;
+      actual_value: number;
+      completion_percentage: number;
+      earned_points: number;
+      possible_points: number;
+      status: string;
+      rollover_action: string | null;
+      created_at: number;
+      updated_at: number;
+    } | undefined;
+
+    if (!r) return null;
+    return {
+      id: r.id,
+      goalId: r.goal_id,
+      userId: r.user_id,
+      periodKey: r.period_key,
+      targetValue: r.target_value,
+      actualValue: r.actual_value,
+      completionPercentage: r.completion_percentage,
+      earnedPoints: r.earned_points,
+      possiblePoints: r.possible_points,
+      status: r.status as GoalInstanceStatus,
+      rolloverAction: (r.rollover_action as RolloverAction) ?? undefined,
+      createdAt: r.created_at,
+      updatedAt: r.updated_at,
+    };
+  },
+
+  upsertGoalInstance(userId: string, inst: GoalInstance): GoalInstance {
+    const db = getDb();
+    const now = Date.now();
+    const id = inst.id || `ginst_${now}_${Math.random().toString(36).substring(2, 7)}`;
+    const createdAt = inst.createdAt || now;
+    const updatedAt = now;
+
+    const stmt = db.prepare(`
+      INSERT INTO goal_instances (
+        id, goal_id, user_id, period_key, target_value, actual_value,
+        completion_percentage, earned_points, possible_points, status,
+        rollover_action, created_at, updated_at
+      )
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      ON CONFLICT(goal_id, period_key) DO UPDATE SET
+        target_value = excluded.target_value,
+        actual_value = excluded.actual_value,
+        completion_percentage = excluded.completion_percentage,
+        earned_points = excluded.earned_points,
+        possible_points = excluded.possible_points,
+        status = excluded.status,
+        rollover_action = excluded.rollover_action,
+        updated_at = excluded.updated_at
+    `);
+
+    stmt.run(
+      id,
+      inst.goalId,
+      userId,
+      inst.periodKey,
+      inst.targetValue,
+      inst.actualValue,
+      inst.completionPercentage,
+      inst.earnedPoints,
+      inst.possiblePoints,
+      inst.status,
+      inst.rolloverAction || null,
+      createdAt,
+      updatedAt
+    );
+
+    return {
+      ...inst,
+      id,
+      userId,
+      createdAt,
+      updatedAt,
+    };
+  },
+
+  // --- GOAL REVIEWS ---
+
+  getGoalReviews(userId: string, periodType?: "weekly" | "monthly"): GoalReview[] {
+    const db = getDb();
+    let query = "SELECT * FROM goal_reviews WHERE user_id = ?";
+    const params: (string | number)[] = [userId];
+    if (periodType) {
+      query += " AND period_type = ?";
+      params.push(periodType);
+    }
+    query += " ORDER BY period_key DESC";
+    const stmt = db.prepare(query);
+    const rows = stmt.all(...params) as Array<{
+      id: string;
+      user_id: string;
+      period_type: string;
+      period_key: string;
+      daily_execution_score: number;
+      outcome_score: number;
+      overall_score: number;
+      reflection: string | null;
+      created_at: number;
+    }>;
+
+    return rows.map((r) => ({
+      id: r.id,
+      userId: r.user_id,
+      periodType: r.period_type as "weekly" | "monthly",
+      periodKey: r.period_key,
+      dailyExecutionScore: r.daily_execution_score,
+      outcomeScore: r.outcome_score,
+      overallScore: r.overall_score,
+      reflection: r.reflection ?? undefined,
+      createdAt: r.created_at,
+    }));
+  },
+
+  saveGoalReview(userId: string, review: GoalReview): GoalReview {
+    const db = getDb();
+    const id = review.id || `grev_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
+    const createdAt = review.createdAt || Date.now();
+
+    const stmt = db.prepare(`
+      INSERT INTO goal_reviews (
+        id, user_id, period_type, period_key,
+        daily_execution_score, outcome_score, overall_score,
+        reflection, created_at
+      )
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+      ON CONFLICT(user_id, period_type, period_key) DO UPDATE SET
+        daily_execution_score = excluded.daily_execution_score,
+        outcome_score = excluded.outcome_score,
+        overall_score = excluded.overall_score,
+        reflection = excluded.reflection
+    `);
+
+    stmt.run(
+      id,
+      userId,
+      review.periodType,
+      review.periodKey,
+      review.dailyExecutionScore,
+      review.outcomeScore,
+      review.overallScore,
+      review.reflection || null,
+      createdAt
+    );
+
+    return { ...review, id, userId, createdAt };
+  },
+
+  // --- GOAL RECOVERY PLANS ---
+
+  getGoalRecoveryPlans(userId: string, weekKey?: string): GoalRecoveryPlan[] {
+    const db = getDb();
+    let query = "SELECT * FROM goal_recovery_plans WHERE user_id = ?";
+    const params: (string | number)[] = [userId];
+    if (weekKey) {
+      query += " AND week_key = ?";
+      params.push(weekKey);
+    }
+    query += " ORDER BY created_at DESC";
+    const stmt = db.prepare(query);
+    const rows = stmt.all(...params) as Array<{
+      id: string;
+      user_id: string;
+      week_key: string;
+      source_instance_id: string;
+      recovery_date: string;
+      target_value: number;
+      actual_value: number;
+      capacity_minutes: number;
+      priority: string;
+      status: string;
+      created_at: number;
+    }>;
+
+    return rows.map((r) => ({
+      id: r.id,
+      userId: r.user_id,
+      weekKey: r.week_key,
+      sourceInstanceId: r.source_instance_id,
+      recoveryDate: r.recovery_date,
+      targetValue: r.target_value,
+      actualValue: r.actual_value,
+      capacityMinutes: r.capacity_minutes,
+      priority: r.priority as "critical" | "recommended" | "optional",
+      status: r.status as "planned" | "in_progress" | "completed" | "cancelled",
+      createdAt: r.created_at,
+    }));
+  },
+
+  saveGoalRecoveryPlan(userId: string, plan: GoalRecoveryPlan): GoalRecoveryPlan {
+    const db = getDb();
+    const id = plan.id || `grec_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
+    const createdAt = plan.createdAt || Date.now();
+
+    const stmt = db.prepare(`
+      INSERT INTO goal_recovery_plans (
+        id, user_id, week_key, source_instance_id, recovery_date,
+        target_value, actual_value, capacity_minutes, priority, status, created_at
+      )
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      ON CONFLICT(id) DO UPDATE SET
+        actual_value = excluded.actual_value,
+        status = excluded.status
+    `);
+
+    stmt.run(
+      id,
+      userId,
+      plan.weekKey,
+      plan.sourceInstanceId,
+      plan.recoveryDate,
+      plan.targetValue,
+      plan.actualValue,
+      plan.capacityMinutes,
+      plan.priority,
+      plan.status,
+      createdAt
+    );
+
+    return { ...plan, id, userId, createdAt };
+  },
+
   // --- 2-WAY SYNC BATCH METHOD ---
 
   syncAllUserData(
@@ -421,6 +865,10 @@ export const Repository = {
       gamification?: GamificationProfile;
       favorites?: Quote[];
       settings?: CustomizationSettings;
+      goals?: Goal[];
+      goalInstances?: GoalInstance[];
+      goalReviews?: GoalReview[];
+      goalRecoveryPlans?: GoalRecoveryPlan[];
     }
   ) {
     // 1. Sync habits (merge client with server, keeping union by id)
@@ -474,6 +922,38 @@ export const Repository = {
     }
     const mergedSettings = this.getUserSettings(userId);
 
+    // 7. Goals
+    if (clientData.goals && clientData.goals.length > 0) {
+      for (const g of clientData.goals) {
+        this.upsertGoal(userId, g);
+      }
+    }
+    const mergedGoals = this.getGoals(userId);
+
+    // 8. Goal Instances
+    if (clientData.goalInstances && clientData.goalInstances.length > 0) {
+      for (const gi of clientData.goalInstances) {
+        this.upsertGoalInstance(userId, gi);
+      }
+    }
+    const mergedGoalInstances = this.getGoalInstances(userId);
+
+    // 9. Goal Reviews
+    if (clientData.goalReviews && clientData.goalReviews.length > 0) {
+      for (const gr of clientData.goalReviews) {
+        this.saveGoalReview(userId, gr);
+      }
+    }
+    const mergedGoalReviews = this.getGoalReviews(userId);
+
+    // 10. Goal Recovery Plans
+    if (clientData.goalRecoveryPlans && clientData.goalRecoveryPlans.length > 0) {
+      for (const rp of clientData.goalRecoveryPlans) {
+        this.saveGoalRecoveryPlan(userId, rp);
+      }
+    }
+    const mergedRecoveryPlans = this.getGoalRecoveryPlans(userId);
+
     return {
       habits: mergedHabits,
       tasks: mergedTasks,
@@ -481,6 +961,10 @@ export const Repository = {
       gamification: finalGamification,
       favorites: mergedFavorites,
       settings: mergedSettings,
+      goals: mergedGoals,
+      goalInstances: mergedGoalInstances,
+      goalReviews: mergedGoalReviews,
+      goalRecoveryPlans: mergedRecoveryPlans,
     };
   },
 };

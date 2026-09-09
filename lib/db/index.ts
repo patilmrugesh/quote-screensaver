@@ -118,10 +118,83 @@ export function getDb(): DatabaseSync {
       FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
     );
 
+    CREATE TABLE IF NOT EXISTS goals (
+      id TEXT PRIMARY KEY,
+      user_id TEXT NOT NULL,
+      parent_goal_id TEXT,
+      name TEXT NOT NULL,
+      description TEXT,
+      level TEXT NOT NULL,
+      importance TEXT NOT NULL,
+      timing TEXT NOT NULL,
+      target_value REAL NOT NULL,
+      unit TEXT NOT NULL,
+      category TEXT NOT NULL,
+      recurrence TEXT NOT NULL,
+      status TEXT NOT NULL,
+      created_at INTEGER NOT NULL,
+      updated_at INTEGER NOT NULL,
+      FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+      FOREIGN KEY (parent_goal_id) REFERENCES goals(id) ON DELETE SET NULL
+    );
+
+    CREATE TABLE IF NOT EXISTS goal_instances (
+      id TEXT PRIMARY KEY,
+      goal_id TEXT NOT NULL,
+      user_id TEXT NOT NULL,
+      period_key TEXT NOT NULL,
+      target_value REAL NOT NULL,
+      actual_value REAL NOT NULL,
+      completion_percentage REAL NOT NULL,
+      earned_points REAL NOT NULL,
+      possible_points REAL NOT NULL,
+      status TEXT NOT NULL,
+      rollover_action TEXT,
+      created_at INTEGER NOT NULL,
+      updated_at INTEGER NOT NULL,
+      FOREIGN KEY (goal_id) REFERENCES goals(id) ON DELETE CASCADE,
+      FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+      UNIQUE(goal_id, period_key)
+    );
+
+    CREATE TABLE IF NOT EXISTS goal_reviews (
+      id TEXT PRIMARY KEY,
+      user_id TEXT NOT NULL,
+      period_type TEXT NOT NULL,
+      period_key TEXT NOT NULL,
+      daily_execution_score REAL NOT NULL,
+      outcome_score REAL NOT NULL,
+      overall_score REAL NOT NULL,
+      reflection TEXT,
+      created_at INTEGER NOT NULL,
+      FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+      UNIQUE(user_id, period_type, period_key)
+    );
+
+    CREATE TABLE IF NOT EXISTS goal_recovery_plans (
+      id TEXT PRIMARY KEY,
+      user_id TEXT NOT NULL,
+      week_key TEXT NOT NULL,
+      source_instance_id TEXT NOT NULL,
+      recovery_date TEXT NOT NULL,
+      target_value REAL NOT NULL,
+      actual_value REAL NOT NULL,
+      capacity_minutes INTEGER NOT NULL,
+      priority TEXT NOT NULL,
+      status TEXT NOT NULL,
+      created_at INTEGER NOT NULL,
+      FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+    );
+
     CREATE INDEX IF NOT EXISTS idx_habits_user ON habits(user_id);
     CREATE INDEX IF NOT EXISTS idx_tasks_user ON tasks(user_id);
     CREATE INDEX IF NOT EXISTS idx_pomodoro_sessions_user ON pomodoro_sessions(user_id);
     CREATE INDEX IF NOT EXISTS idx_favorites_user ON favorites(user_id);
+    CREATE INDEX IF NOT EXISTS idx_goals_user ON goals(user_id);
+    CREATE INDEX IF NOT EXISTS idx_goals_level ON goals(level);
+    CREATE INDEX IF NOT EXISTS idx_goal_instances_user_period ON goal_instances(user_id, period_key);
+    CREATE INDEX IF NOT EXISTS idx_goal_reviews_user ON goal_reviews(user_id, period_key);
+    CREATE INDEX IF NOT EXISTS idx_goal_recovery_user ON goal_recovery_plans(user_id, week_key);
   `);
 
   dbInstance = db;
