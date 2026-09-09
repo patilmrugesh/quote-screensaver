@@ -4,6 +4,7 @@ import { Repository } from "@/lib/db/repository";
 import type { HabitItem, TaskItem } from "@/lib/todoHabitTypes";
 import type { PomodoroSession, GamificationProfile } from "@/lib/pomodoroTypes";
 import type { Quote, CustomizationSettings } from "@/lib/types";
+import type { Goal, GoalInstance, GoalReview, GoalRecoveryPlan } from "@/lib/goalTypes";
 
 export const dynamic = "force-dynamic";
 
@@ -21,6 +22,10 @@ export async function POST(request: Request) {
       gamification?: GamificationProfile;
       favorites?: Quote[];
       settings?: CustomizationSettings;
+      goals?: Goal[];
+      goalInstances?: GoalInstance[];
+      goalReviews?: GoalReview[];
+      goalRecoveryPlans?: GoalRecoveryPlan[];
     };
 
     const synchronized = Repository.syncAllUserData(user.id, body);

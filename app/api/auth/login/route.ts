@@ -41,6 +41,10 @@ export async function POST(request: Request) {
       gamification: Repository.getGamification(user.id),
       favorites: Repository.getFavorites(user.id),
       settings: Repository.getUserSettings(user.id),
+      goals: Repository.getGoals(user.id),
+      goalInstances: Repository.getGoalInstances(user.id),
+      goalReviews: Repository.getGoalReviews(user.id),
+      goalRecoveryPlans: Repository.getGoalRecoveryPlans(user.id),
     };
 
     const response = NextResponse.json({

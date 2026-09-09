@@ -17,6 +17,10 @@ export async function GET(request: Request) {
     gamification: Repository.getGamification(user.id),
     favorites: Repository.getFavorites(user.id),
     settings: Repository.getUserSettings(user.id),
+    goals: Repository.getGoals(user.id),
+    goalInstances: Repository.getGoalInstances(user.id),
+    goalReviews: Repository.getGoalReviews(user.id),
+    goalRecoveryPlans: Repository.getGoalRecoveryPlans(user.id),
   };
 
   return NextResponse.json({ user, cloudData });
