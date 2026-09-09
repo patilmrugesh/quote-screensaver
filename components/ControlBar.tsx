@@ -15,6 +15,7 @@ import {
   Bookmark,
   CheckSquare,
   User,
+  Target,
 } from "lucide-react";
 import { AmbientSoundType } from "@/lib/types";
 import type { AuthUser } from "@/hooks/useAuth";
@@ -32,6 +33,8 @@ interface ControlBarProps {
   onOpenFavorites: () => void;
   tasksPendingCount?: number;
   onOpenTasks?: () => void;
+  onOpenGoals?: () => void;
+  goalScorePercentage?: number;
   onOpenSettings: () => void;
   onOpenShortcuts: () => void;
   user?: AuthUser | null;
@@ -66,6 +69,8 @@ export default function ControlBar({
   onOpenFavorites,
   tasksPendingCount,
   onOpenTasks,
+  onOpenGoals,
+  goalScorePercentage,
   onOpenSettings,
   onOpenShortcuts,
   user,
@@ -225,6 +230,24 @@ export default function ControlBar({
           {tasksPendingCount !== undefined && tasksPendingCount > 0 && (
             <span className="absolute -top-1 -right-1 flex h-4 min-w-[16px] items-center justify-center rounded-full bg-amber-500 px-1 text-[10px] font-bold text-neutral-950">
               {tasksPendingCount}
+            </span>
+          )}
+        </button>
+      )}
+
+      {/* Goals & Execution System Toggle */}
+      {onOpenGoals && (
+        <button
+          type="button"
+          title={`Goals & Execution System (G)${goalScorePercentage !== undefined && goalScorePercentage > 0 ? ` • ${goalScorePercentage}% today` : ""}`}
+          aria-label="Open goal and execution management"
+          onClick={withStopPropagation(onOpenGoals)}
+          className="relative rounded-full p-2 text-white/80 transition hover:bg-white/10 hover:text-white"
+        >
+          <Target size={18} />
+          {goalScorePercentage !== undefined && goalScorePercentage > 0 && (
+            <span className="absolute -top-1 -right-1 flex h-4 min-w-[16px] items-center justify-center rounded-full bg-emerald-500 px-1 text-[9px] font-bold text-neutral-950">
+              {goalScorePercentage}%
             </span>
           )}
         </button>

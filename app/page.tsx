@@ -21,9 +21,11 @@ import PomodoroSettingsModal from "@/components/PomodoroSettingsModal";
 import PomodoroReportModal from "@/components/PomodoroReportModal";
 import TodoHabitDrawer from "@/components/TodoHabitDrawer";
 import AuthModal from "@/components/AuthModal";
+import GoalsModal from "@/components/goals/GoalsModal";
 import { usePomodoro } from "@/hooks/usePomodoro";
 import { useTodoHabits } from "@/hooks/useTodoHabits";
 import { useAuth, applyCloudDataToLocalStorage } from "@/hooks/useAuth";
+import { useGoals } from "@/hooks/useGoals";
 
 const allQuotes: Quote[] = quotesData as Quote[];
 
@@ -33,11 +35,13 @@ export default function Home() {
   const pomodoro = usePomodoro();
   const todoHabits = useTodoHabits();
   const auth = useAuth();
+  const goals = useGoals();
 
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isFavoritesOpen, setIsFavoritesOpen] = useState(false);
   const [isShortcutsOpen, setIsShortcutsOpen] = useState(false);
   const [isTasksOpen, setIsTasksOpen] = useState(false);
+  const [isGoalsOpen, setIsGoalsOpen] = useState(false);
   const [isPomodoroOpen, setIsPomodoroOpen] = useState(false);
   const [isPomodoroSettingsOpen, setIsPomodoroSettingsOpen] = useState(false);
   const [isPomodoroReportOpen, setIsPomodoroReportOpen] = useState(false);
@@ -66,7 +70,22 @@ export default function Home() {
     gamification: pomodoro.gamification,
     favorites: favorites,
     settings: settings,
-  }), [todoHabits.habits, todoHabits.tasks, pomodoro.sessions, pomodoro.gamification, favorites, settings]);
+    goals: goals.goals,
+    goalInstances: goals.instances,
+    goalReviews: goals.reviews,
+    goalRecoveryPlans: goals.recoveryPlans,
+  }), [
+    todoHabits.habits,
+    todoHabits.tasks,
+    pomodoro.sessions,
+    pomodoro.gamification,
+    favorites,
+    settings,
+    goals.goals,
+    goals.instances,
+    goals.reviews,
+    goals.recoveryPlans,
+  ]);
 
   const authUser = auth.user;
   const syncToCloud = auth.syncToCloud;
@@ -210,6 +229,11 @@ export default function Home() {
           e.preventDefault();
           setIsTasksOpen((prev) => !prev);
           break;
+        case "g":
+        case "G":
+          e.preventDefault();
+          setIsGoalsOpen((prev) => !prev);
+          break;
         case "u":
         case "U":
           e.preventDefault();
@@ -227,6 +251,7 @@ export default function Home() {
           setIsPomodoroSettingsOpen(false);
           setIsPomodoroReportOpen(false);
           setIsTasksOpen(false);
+          setIsGoalsOpen(false);
           setIsAuthOpen(false);
           setIsZenMode(false);
           break;
@@ -302,6 +327,8 @@ export default function Home() {
           onOpenFavorites={() => setIsFavoritesOpen(true)}
           tasksPendingCount={todoHabits.tasks.filter((t) => !t.completed).length}
           onOpenTasks={() => setIsTasksOpen(true)}
+          onOpenGoals={() => setIsGoalsOpen(true)}
+          goalScorePercentage={goals.todaySummary.scorePercentage}
           onOpenSettings={() => setIsSettingsOpen(true)}
           onOpenShortcuts={() => setIsShortcutsOpen(true)}
           user={auth.user}
@@ -408,11 +435,22 @@ export default function Home() {
           gamification: pomodoro.gamification,
           favorites: favorites,
           settings: settings,
+          goals: goals.goals,
+          goalInstances: goals.instances,
+          goalReviews: goals.reviews,
+          goalRecoveryPlans: goals.recoveryPlans,
         })}
         onApplySyncedData={(data) => {
           applyCloudDataToLocalStorage(data as Parameters<typeof applyCloudDataToLocalStorage>[0]);
         }}
         clearError={auth.clearError}
+      />
+
+      {/* Goals & Execution System Workspace Modal */}
+      <GoalsModal
+        isOpen={isGoalsOpen}
+        onClose={() => setIsGoalsOpen(false)}
+        goalsHook={goals}
       />
     </main>
   );

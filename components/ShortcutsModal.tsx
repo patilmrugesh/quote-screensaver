@@ -19,6 +19,7 @@ const SHORTCUTS = [
   { key: "S", action: "Open customization panel" },
   { key: "T", action: "Open Pomodoro focus timer" },
   { key: "K", action: "Open Tasks, Habits & Routines" },
+  { key: "G", action: "Open Goals & Execution System" },
   { key: "U", action: "Open Account & Cloud Sync" },
   { key: "M", action: "Mute / toggle ambient sound" },
   { key: "?", action: "Open this keyboard guide" },
