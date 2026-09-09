@@ -2,6 +2,7 @@ import { useCallback, useEffect, useSyncExternalStore } from "react";
 import type { HabitItem, TaskItem } from "@/lib/todoHabitTypes";
 import type { PomodoroSession, GamificationProfile } from "@/lib/pomodoroTypes";
 import type { Quote, CustomizationSettings } from "@/lib/types";
+import type { Goal, GoalInstance, GoalReview, GoalRecoveryPlan } from "@/lib/goalTypes";
 
 export interface AuthUser {
   id: string;
@@ -17,6 +18,10 @@ export interface SyncPayload {
   gamification?: GamificationProfile;
   favorites?: Quote[];
   settings?: CustomizationSettings;
+  goals?: Goal[];
+  goalInstances?: GoalInstance[];
+  goalReviews?: GoalReview[];
+  goalRecoveryPlans?: GoalRecoveryPlan[];
 }
 
 export interface SyncResponseData {
@@ -26,6 +31,10 @@ export interface SyncResponseData {
   gamification: GamificationProfile | null;
   favorites: Quote[];
   settings: CustomizationSettings | null;
+  goals: Goal[];
+  goalInstances: GoalInstance[];
+  goalReviews: GoalReview[];
+  goalRecoveryPlans: GoalRecoveryPlan[];
 }
 
 interface AuthState {
@@ -90,11 +99,28 @@ export function applyCloudDataToLocalStorage(data: Partial<SyncResponseData>) {
     }
     if (data.gamification) {
       window.localStorage.setItem("screensaver_pomodoro_gamification", JSON.stringify(data.gamification));
+      window.localStorage.setItem("quote-screensaver-pomodoro-gamification", JSON.stringify(data.gamification));
       setTimeout(() => window.dispatchEvent(new Event("pomodoro-gamification-changed")), 0);
     }
     if (data.favorites && Array.isArray(data.favorites)) {
       window.localStorage.setItem("study_favorites", JSON.stringify(data.favorites));
       setTimeout(() => window.dispatchEvent(new Event("local-favorites-changed")), 0);
+    }
+    if (data.goals && Array.isArray(data.goals)) {
+      window.localStorage.setItem("study_goals", JSON.stringify(data.goals));
+      setTimeout(() => window.dispatchEvent(new Event("goals-changed")), 0);
+    }
+    if (data.goalInstances && Array.isArray(data.goalInstances)) {
+      window.localStorage.setItem("study_goal_instances", JSON.stringify(data.goalInstances));
+      setTimeout(() => window.dispatchEvent(new Event("goals-changed")), 0);
+    }
+    if (data.goalReviews && Array.isArray(data.goalReviews)) {
+      window.localStorage.setItem("study_goal_reviews", JSON.stringify(data.goalReviews));
+      setTimeout(() => window.dispatchEvent(new Event("goals-changed")), 0);
+    }
+    if (data.goalRecoveryPlans && Array.isArray(data.goalRecoveryPlans)) {
+      window.localStorage.setItem("study_goal_recovery", JSON.stringify(data.goalRecoveryPlans));
+      setTimeout(() => window.dispatchEvent(new Event("goals-changed")), 0);
     }
   } catch {}
 }
